@@ -6,6 +6,7 @@ import getHistory, {ErrorRet, OkRet} from '../utils/getHistory'
 import Error from 'next/error'
 import md5 from 'md5'
 import {config} from '../providers/configProvider'
+import fs from 'fs'
 
 export default function Home({data, code}: { data: ErrorRet | OkRet, code?: number }) {
     return (
@@ -56,7 +57,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 
-    const data = await getHistory(res)
+    if (!fs.existsSync('cache'))
+        fs.mkdirSync('cache')
+
+    let data: OkRet | ErrorRet
+
+    if (fs.existsSync('cache/' + resMd5 + '.json'))
+        data = JSON.parse(fs.readFileSync('cache/' + resMd5 + '.json', 'utf-8'))
+    else {
+        data = await getHistory(res)
+        if (!data.error)
+            fs.writeFile('cache/' + resMd5 + '.json', JSON.stringify(data), 'utf-8', () => 0)
+    }
 
     if (data.error)
         context.res.statusCode = 500
