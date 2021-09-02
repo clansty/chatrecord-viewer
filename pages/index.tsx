@@ -2,8 +2,9 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {GetServerSideProps, InferGetServerSidePropsType} from 'next'
 import DateGroup from '../types/DateGroup'
+import DateContainer from '../components/DateContainer'
 
-export default function Home({record}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Home({records}: { records: DateGroup[] }) {
     return (
         <div className={styles.container}>
             <Head>
@@ -12,7 +13,7 @@ export default function Home({record}: InferGetServerSidePropsType<typeof getSer
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <div className={styles.container}>
-
+                {records.map(e => <DateContainer group={e} key={e.date}/>)}
             </div>
         </div>
     )
@@ -20,7 +21,7 @@ export default function Home({record}: InferGetServerSidePropsType<typeof getSer
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     //测试用的假数据
-    const record: DateGroup[] = [
+    const records: DateGroup[] = [
         {
             date: '2021/9/2',
             messages: [
@@ -30,8 +31,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
                     username: 'aaa',
                     messages: [
                         {content: '测试', time: '9:32', id: 'a'},
-                        {content: '测试', time: '9:32', id: 'a'},
-                        {content: '测试', time: '9:32', id: 'a'},
+                        {content: '测试', time: '9:32', id: 's'},
+                        {content: '测试', time: '9:32', id: 'd'},
                     ],
                 },
                 {
@@ -39,7 +40,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
                     senderId: 1793675651,
                     username: 'bbb',
                     messages: [
-                        {content: '测试', time: '9:32', id: 'a'},
+                        {content: '测试', time: '9:32', id: 'f'},
                     ],
                 },
             ],
@@ -48,7 +49,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     return {
         props: {
-            record,
+            records,
         },
     }
 }

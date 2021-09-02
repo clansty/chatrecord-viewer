@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  margin: 20px 0;
+
+  .avatarContainer {
+    display: flex;
+    width: 50px;
+    max-width: 50px;
+    min-width: 50px;
+    justify-content: center;
+    align-items: flex-end;
+
+    img {
+      position: sticky;
+      bottom: 10px;
+      height: 36px;
+      width: 36px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .mainContainer {
+    flex-grow: 1;
+  }
+}

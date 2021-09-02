@@ -1,0 +1,34 @@
+.container{
+  border-radius: 0 10px 10px 0;
+  width: max-content;
+  min-width: 100px;
+  max-width: calc(100vw - 100px);
+  margin: 4px;
+  padding: 4px 10px;
+  font-size: medium;
+  background-color: #F3F3F3;
+  color: #303133;
+
+  &.senderName{
+    position: sticky;
+    top: 0;
+    border-radius: 10px;
+    min-width: unset;
+    background-color: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(10px);
+    font-size: small;
+    font-weight: bold;
+    color: #D75E92;
+  }
+
+  &:nth-child(2){
+    border-radius: 10px 10px 10px 0;
+  }
+
+  .time{
+    margin-top: 2px;
+    text-align: right;
+    color: #909399;
+    font-size: smaller;
+  }
+}
