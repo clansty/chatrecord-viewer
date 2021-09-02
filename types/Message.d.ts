@@ -5,7 +5,7 @@ type Message = {
     content: string
     file?: MessageFile
     time: string
-    id: string
+    id: number
 }
 
 export default Message
