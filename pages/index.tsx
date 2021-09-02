@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
                     messages: [
                         {content: '测试', time: '9:32', id: 'a'},
                         {content: '测试', time: '9:32', id: 's'},
-                        {content: '测试', time: '9:32', id: 'd'},
+                        {content: '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试', time: '9:32', id: 'd'},
                     ],
                 },
                 {
@@ -40,7 +40,36 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
                     senderId: 1793675651,
                     username: 'bbb',
                     messages: [
-                        {content: '测试', time: '9:32', id: 'f'},
+                        {content: '测试', time: '9:32', id: 'h'},
+                        {
+                            content: '测试',
+                            time: '9:32',
+                            id: 'f',
+                            file:{
+                                type: 'image/webp',
+                                url: 'https://cdn.lwqwq.com/pic/avatar'
+                            }
+                        },
+                        {
+                            content: '测试',
+                            time: '9:32',
+                            id: 'q',
+                            file:{
+                                type: 'video/mp4',
+                                url: 'https://media.w3.org/2010/05/sintel/trailer.mp4'
+                            }
+                        },
+                        {
+                            content: '',
+                            time: '9:32',
+                            id: 'w',
+                            file:{
+                                type: 'application/octect-stream',
+                                url: 'https://cdn.lwqwq.com/pic/avatar',
+                                name: '文件'
+                            }
+                        },
+                        {content: '测试', time: '9:32', id: 'g'},
                     ],
                 },
             ],

@@ -11,6 +11,7 @@
 
   &.senderName{
     position: sticky;
+    z-index: 2;
     top: 0;
     border-radius: 10px;
     min-width: unset;
