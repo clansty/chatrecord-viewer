@@ -10,6 +10,7 @@ export default function MessageFile({file}: { file: MessageFileType }) {
                 width={200}
                 alt=""
                 src={file.url}
+                referrerPolicy="no-referrer"
             />
         </div>}
         {file.type.startsWith('video/') && <div className={styles.imageContainer}>
