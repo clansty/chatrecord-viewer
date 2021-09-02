@@ -35,6 +35,9 @@ export default async function processMessage(oicqMessage: MessageElem[]) {
                     type: 'image/jpeg',
                     url,
                 }
+                if (typeof m.data.file === 'string') {
+                    message.file.md5 = m.data.file.substr(0, 32)
+                }
                 break
             case 'bface':
                 url = `https://gxh.vip.qq.com/club/item/parcel/item/${m.data.file.substr(
@@ -54,6 +57,7 @@ export default async function processMessage(oicqMessage: MessageElem[]) {
                     url: m.data.url,
                     name: m.data.name,
                     fid: m.data.fid,
+                    md5: m.data.md5,
                 }
                 break
             case 'share':
