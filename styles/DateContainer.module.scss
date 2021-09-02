@@ -4,12 +4,16 @@
   top: 0;
   left: 0;
   right: 0;
-  margin: 10px auto auto;
-  padding: 4px 8px;
+  margin: auto auto;
+  padding-top: 10px;
   width: max-content;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  color: white;
-  font-size: smaller;
+
+  span{
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    color: white;
+    font-size: smaller;
+  }
 }

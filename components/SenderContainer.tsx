@@ -7,7 +7,11 @@ import MessageBubble from './MessageBubble'
 export default function SenderContainer({group}: { group: SenderGroup }) {
     return <div className={styles.container}>
         <div className={styles.avatarContainer}>
-            <img src={getUserAvatarUrl(group.senderId)} alt={`头像：${group.senderId}`}/>
+            <img
+                src={getUserAvatarUrl(group.senderId)}
+                alt={`头像：${group.senderId}`}
+                referrerPolicy="no-referrer"
+            />
         </div>
         <div className={styles.mainContainer}>
             <SenderNameBubble name={group.username}/>

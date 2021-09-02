@@ -5,7 +5,9 @@ import SenderContainer from './SenderContainer'
 export default function DateContainer({group}: { group: DateGroup }) {
     return <div>
         <div className={styles.date}>
-            {group.date}
+            <span>
+                {group.date}
+            </span>
         </div>
         {group.messages.map(e => <SenderContainer group={e} key={e.id}/>)}
     </div>
