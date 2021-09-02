@@ -4,6 +4,8 @@ import {GetServerSideProps} from 'next'
 import DateContainer from '../components/DateContainer'
 import getHistory, {ErrorRet, OkRet} from '../utils/getHistory'
 import Error from 'next/error'
+import md5 from 'md5'
+import {config} from '../providers/configProvider'
 
 export default function Home({data, code}: { data: ErrorRet | OkRet, code?: number }) {
     return (
@@ -24,7 +26,7 @@ export default function Home({data, code}: { data: ErrorRet | OkRet, code?: numb
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    if (!context.query.res) {
+    if (!context.query.res || !context.query.sign) {
         context.res.statusCode = 400
         return {
             props: {
@@ -37,7 +39,24 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 
-    const data = await getHistory(context.query.res as string)
+    const res = (context.query.res as string).replace(/ /g, '+')
+    const resMd5 = md5(res)
+    const sign = md5(resMd5 + config.token)
+
+    if (context.query.sign !== sign) {
+        context.res.statusCode = 403
+        return {
+            props: {
+                data: {
+                    error: true,
+                    data: 'Sign verification failed',
+                },
+                code: 403,
+            },
+        }
+    }
+
+    const data = await getHistory(res)
 
     if (data.error)
         context.res.statusCode = 500
