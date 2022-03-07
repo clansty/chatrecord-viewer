@@ -11,7 +11,18 @@ function App() {
     const [error, setError] = useState(false)
 
     useEffect(() => {
-        fetch(`${BASE_URL}/records${window.location.search}`)
+        const params = new URLSearchParams(window.location.search)
+        let fetchUrl = ''
+        if (params.get('res') && params.get('sign')) {
+            fetchUrl = `${BASE_URL}/records${window.location.search}`
+        }
+        else if (params.get('hash')) {
+            fetchUrl = `/api/get/${params.get('hash')}`
+        }
+        if (!fetchUrl) {
+            setError(true)
+        }
+        fetch(fetchUrl)
             .then(res => res.json())
             .then(data => setData(processHistory(data)))
             .catch(e => setError(e))
