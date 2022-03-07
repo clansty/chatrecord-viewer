@@ -1,6 +1,6 @@
 export const onRequestGet: PagesFunction<{
     DATA_STORE: KVNamespace;
-}, 'hash'> = async ({request, env, params}) => {
+}, 'hash'> = async ({env, params}) => {
     const data = await env.DATA_STORE.get(params.hash as string)
 
     if (data) {
