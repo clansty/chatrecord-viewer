@@ -365,6 +365,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudflare/workers-types@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "@cloudflare/workers-types@npm:3.4.0"
+  checksum: 03294ec6ce0494dc0e8a07fa9c2eb1edee674538d8bbf2bf21bbb4e05b23759e8d12bab6e938f558f0ea8d258b9f348145131b2a33816a6a62429f69bb927070
+  languageName: node
+  linkType: hard
+
 "@ctrl/tinycolor@npm:^3.4.0":
   version: 3.4.0
   resolution: "@ctrl/tinycolor@npm:3.4.0"
@@ -1175,6 +1182,7 @@ __metadata:
   resolution: "frontend@workspace:."
   dependencies:
     "@ant-design/icons": ^4.7.0
+    "@cloudflare/workers-types": ^3.4.0
     "@types/react": ^17.0.33
     "@types/react-dom": ^17.0.10
     "@vitejs/plugin-react": ^1.0.7
