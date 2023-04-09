@@ -10,7 +10,7 @@ export default function processHistory(history: ForwardMessage[] | TelegramMessa
   let currentSenderGroup: SenderGroup | undefined
   for (let i = 0; i < history.length; i++) {
     const current = history[i]
-    const time = 'time' in current ? current.time : current.date
+    const time = 'time' in current ? current.time : current.forward_date || current.date
     const msgDate = new Date(time * 1000)
     if (!currentDateGroup || formatDate('yyyy/M/d', msgDate) !== currentDateGroup.date) {
       // 推入所有数据
