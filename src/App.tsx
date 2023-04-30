@@ -17,7 +17,7 @@ function App() {
             fetchUrl = `${BASE_URL}/records${window.location.search}`
         }
         else if (params.get('hash')) {
-            fetchUrl = `https://crv.init.ink/api/get/${params.get('hash')}`
+            fetchUrl = `/api/get/${params.get('hash')}`
         }
         if (!fetchUrl) {
             setError(true)
