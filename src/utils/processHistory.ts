@@ -1,4 +1,4 @@
-import {ForwardMessage} from 'oicq'
+import type {ForwardMessage} from 'oicq'
 import DateGroup from '../types/DateGroup'
 import SenderGroup from '../types/SenderGroup'
 import formatDate from './formatDate'
@@ -35,7 +35,7 @@ export default function processHistory(history: ForwardMessage[] | TelegramMessa
     else if (current.forward_from) {
       senderId = current.forward_from.id
       username = current.forward_from.first_name + (current.forward_from.last_name ? ' ' + current.forward_from.last_name : '')
-      avatar = `https://tg-avatars.init.ink/avatar/${senderId}`
+      avatar = `/api/tg-avatar/${senderId}`
     }
     else if (current.forward_sender_name) {
       senderId = username = current.forward_sender_name
@@ -47,7 +47,7 @@ export default function processHistory(history: ForwardMessage[] | TelegramMessa
     else if (current.from) {
       senderId = current.from.id
       username = current.from.first_name + (current.from.last_name ? ' ' + current.from.last_name : '')
-      avatar = `https://tg-avatars.init.ink/avatar/${senderId}`
+      avatar = `/api/tg-avatar/${senderId}`
     }
 
     if (!currentSenderGroup || senderId !== currentSenderGroup.senderId) {
