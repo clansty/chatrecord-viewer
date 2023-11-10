@@ -14,7 +14,11 @@ export default function MessageBubble({message}: { message: ForwardMessage | Tel
           url: `https://tg-avatars.init.ink/files/${message.photo[message.photo.length - 1].file_id}`,
         }}/>}
         {message.sticker && <MessageElement elem={{
-          type: 'image',
+          type: (() => {
+            if (message.sticker.is_video) return 'video-loop'
+            if (message.sticker.is_animated) return 'tgs'
+            return 'image'
+          })(),
           file: null,
           url: `https://tg-avatars.init.ink/files/${message.sticker.file_id}`,
         }}/>}
