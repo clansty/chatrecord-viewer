@@ -23,7 +23,7 @@ export default defineComponent({
         />
       </div>
       <div class={styles.mainContainer}>
-        <SenderNameBubble name={props.group.username}/>
+        <SenderNameBubble name={props.group.username} id={props.group.senderId}/>
         {props.group.messages.map((e, index) =>
           <MessageBubble message={e} key={index}/>)}
       </div>
