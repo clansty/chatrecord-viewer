@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "pnpm run --filter=chat-record-viewer dev",
+    "build": "pnpm run --filter=chat-record-viewer --parallel build"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "sass": "^1.70.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.1",
+    "vue": "^3.4.18"
+  }
+}

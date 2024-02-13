@@ -1,0 +1,18 @@
+{
+  "name": "@clansty/chat-record-view",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "vite",
+    "dev:expose": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@lottiefiles/lottie-player": "^2.0.3",
+    "icqq": "^0.6.10",
+    "naive-ui": "^2.37.3",
+    "sass": "^1.70.0"
+  }
+}
