@@ -5,6 +5,7 @@ import getImageUrlByMd5 from '../utils/getImageUrlByMd5';
 import {NImage} from 'naive-ui';
 import JsonElement from './JsonElement';
 import XmlElement from './XmlElement';
+import linkifyStr from 'linkify-string';
 
 export default defineComponent({
   props: {
@@ -17,7 +18,11 @@ export default defineComponent({
         case 'face':
         case 'sface':
         case 'at':
-          return <div class={styles.messageContent}>{props.elem.text}</div>;
+          // will not xss
+          return <div class={styles.messageContent} innerHTML={linkifyStr(props.elem.text || '', {
+            nl2br: true,
+            target: '_blank',
+          })}></div>;
         case 'image':
         case 'flash':
           let md5;
